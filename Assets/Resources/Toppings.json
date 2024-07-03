@@ -1,0 +1,40 @@
+{
+  "toppings": [
+    {
+      "name": "Butter Lock",
+      "locked": true
+    },
+    {
+      "name": "Green grape Lock",
+      "locked": true
+    },
+    {
+      "name": "Hub Lock",
+      "locked": true
+    },
+    {
+      "name": "Banana Lock",
+      "locked": true
+    },
+    {
+      "name": "Whipped cream Lock",
+      "locked": true
+    },
+    {
+      "name": "Pistachio Lock",
+      "locked": true
+    },
+    {
+      "name": "Raspberry Lock",
+      "locked": true
+    },
+    {
+      "name": "Walnuts Lock",
+      "locked": true
+    },
+    {
+      "name": "Almond Lock",
+      "locked": true
+    }
+  ]
+}

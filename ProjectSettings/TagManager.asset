@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Pancake1
+  - Pancake2
+  - Pancake3
+  - Topping1
+  - Topping2
+  - Topping3
+  - Syrup1
+  - Syrup2
+  - Syrup3
+  - FoodDish
+  - Pancake4
+  - Pancake5
+  - Pancake6
+  - Pancake7
+  - Pancake8
+  - Pancake9
+  - Topping4
+  - Topping5
+  - Topping6
+  - Topping7
+  - Topping8
+  - Topping9
+  - Topping10
+  - Topping11
+  - Syrup4
+  - Syrup5
+  - Syrup6
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0

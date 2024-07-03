@@ -1,0 +1,28 @@
+{
+  "syrups": [
+    {
+      "name": "ChocoS Lock",
+      "locked": true
+    },
+    {
+      "name": "StrawberryS Lock",
+      "locked": true
+    },
+    {
+      "name": "Orange Lock",
+      "locked": true
+    },
+    {
+      "name": "MintS Lock",
+      "locked": true
+    },
+    {
+      "name": "Green teaS Lock",
+      "locked": true
+    },
+    {
+      "name": "LavaS Lock",
+      "locked": true
+    }
+  ]
+}
