@@ -33,19 +33,19 @@ public class HamsterAnimation : MonoBehaviour
 
     IEnumerator HeartTrigger()
     {
-        animator.SetTrigger("Heart");
+            animator.SetTrigger("Heart");       
         yield return new WaitForSeconds(2.0f);
         //animator.ResetTrigger("Heart");
     }
     IEnumerator SosoTrigger()
     {
-        animator.SetTrigger("Soso");
+            animator.SetTrigger("Soso");     
         yield return new WaitForSeconds(2.0f);
         //animator.ResetTrigger("Soso");
     }
     IEnumerator AngryTrigger()
     {
-        animator.SetTrigger("Angry");
+            animator.SetTrigger("Angry");
         yield return new WaitForSeconds(2.0f);
         //animator.ResetTrigger("Angry");
     }

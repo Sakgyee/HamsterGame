@@ -6,8 +6,6 @@ public class MakeFood : MonoBehaviour
 {
     public static MakeFood instance;
 
-    public GameObject Make;
-
     public GameObject Pancakei1;
     public GameObject Pancakei2;
     public GameObject Pancakei3;
@@ -129,9 +127,9 @@ public class MakeFood : MonoBehaviour
     private bool syrup6ButtonPressed = true;
     private bool syrup7ButtonPressed = true;
 
-    int pancount = 0;
-    int tocount = 0;
-    int sycount = 0;
+    public int pancount = 0;
+    public int tocount = 0;
+    public int sycount = 0;
 
     public int pannum;
     public int tonum;
@@ -139,13 +137,38 @@ public class MakeFood : MonoBehaviour
     public int synum;
 
     public float MakeTime;
+
+    public AudioSource MakeFinish;
+    public AudioSource Trash;
+
+    public AudioSource POP;
     void Awake()
     {
         MakeFood.instance = this;  //변수 초기화부
     }
+    private void Start()
+    {
+        MakingPanel.SetActive(false);
+        pancount = 0;
+        tocount = 0;
+        sycount = 0;
+
+        pannum = 0;
+        tonum = 0;
+        tonum1 = 0;
+        synum = 0;
+
+        PancakeMoney = 0;
+        ToppingMoney = 0;
+        Topping1Money = 0;
+        SyrupMoney = 0;
+
+        MakeMoney = 0;
+    }
 
     public void PancakeButtonClicked(string buttonTag)
     {
+        POP.Play();
         Debug.Log("pancount" + pancount);
         if (buttonTag == "Pancake1")
         {
@@ -378,9 +401,9 @@ public class MakeFood : MonoBehaviour
         }
     }
 
-
     public void ToppingButtonClicked(string buttonTag)
     {
+        POP.Play();
         samemenutext.SetActive(false);
         Debug.Log("tocount" + tocount);
         if (buttonTag == "Topping1")
@@ -663,6 +686,7 @@ public class MakeFood : MonoBehaviour
 
     public void SyrupButtonClicked(string buttonTag)
     {
+        POP.Play();
         samemenutext.SetActive(false);
         Debug.Log("sycount" + sycount);
         if (buttonTag == "Syrup1")
@@ -846,7 +870,7 @@ public class MakeFood : MonoBehaviour
         }
             Pancakei1.SetActive(true);
             MPancakei1.SetActive(true);
-            pancount += 1;
+            pancount = 1;
         pannum = 1;
         PancakeMoney += 1;
         PanCollect.SetActive(false);
@@ -869,7 +893,7 @@ public class MakeFood : MonoBehaviour
         }
         Pancakei2.SetActive(true);
         MPancakei2.SetActive(true);
-        pancount += 1;
+        pancount = 1;
         pannum = 2;
         PancakeMoney += 2;
         PanCollect.SetActive(false);
@@ -892,7 +916,7 @@ public class MakeFood : MonoBehaviour
         }
         Pancakei3.SetActive(true);
         MPancakei3.SetActive(true);
-        pancount += 1;
+        pancount = 1;
         pannum = 3;
         PancakeMoney += 3;
         PanCollect.SetActive(false);
@@ -915,7 +939,7 @@ public class MakeFood : MonoBehaviour
         }
         Pancakei4.SetActive(true);
         MPancakei4.SetActive(true);
-        pancount += 1;
+        pancount = 1;
         pannum = 4;
         PancakeMoney += 4;
         PanCollect.SetActive(false);
@@ -938,7 +962,7 @@ public class MakeFood : MonoBehaviour
         }
         Pancakei5.SetActive(true);
         MPancakei5.SetActive(true);
-        pancount += 1;
+        pancount = 1;
         pannum = 5;
         PancakeMoney += 5;
         PanCollect.SetActive(false);
@@ -961,7 +985,7 @@ public class MakeFood : MonoBehaviour
         }
         Pancakei6.SetActive(true);
         MPancakei6.SetActive(true);
-        pancount += 1;
+        pancount = 1;
         pannum = 6;
         PancakeMoney += 6;
         PanCollect.SetActive(false);
@@ -984,7 +1008,7 @@ public class MakeFood : MonoBehaviour
         }
         Pancakei7.SetActive(true);
         MPancakei7.SetActive(true);
-        pancount += 1;
+        pancount = 1;
         pannum = 7;
         PancakeMoney += 7;
         PanCollect.SetActive(false);
@@ -1007,7 +1031,7 @@ public class MakeFood : MonoBehaviour
         }
         Pancakei8.SetActive(true);
         MPancakei8.SetActive(true);
-        pancount += 1;
+        pancount = 1;
         pannum = 8;
         PancakeMoney += 8;
         PanCollect.SetActive(false);
@@ -1030,7 +1054,7 @@ public class MakeFood : MonoBehaviour
         }
         Pancakei9.SetActive(true);
         MPancakei9.SetActive(true);
-        pancount += 1;
+        pancount = 1;
         pannum = 9;
         PancakeMoney += 9;
         PanCollect.SetActive(false);
@@ -1579,7 +1603,7 @@ public class MakeFood : MonoBehaviour
         }
         Syrupi1.SetActive(true);
         MSyrupi1.SetActive(true);
-        sycount += 1;
+        sycount = 1;
         synum = 1;
         PancakeMoney += 1;
     }
@@ -1631,7 +1655,7 @@ public class MakeFood : MonoBehaviour
         }
         Syrupi2.SetActive(true);
         MSyrupi2.SetActive(true);
-        sycount += 1;
+        sycount = 1;
         synum = 2;
         PancakeMoney += 2;
     }
@@ -1683,7 +1707,7 @@ public class MakeFood : MonoBehaviour
         }
         Syrupi3.SetActive(true);
         MSyrupi3.SetActive(true);
-        sycount += 1;
+        sycount = 1;
         synum = 3;
         PancakeMoney += 3;
     }
@@ -1735,7 +1759,7 @@ public class MakeFood : MonoBehaviour
         }
         Syrupi4.SetActive(true);
         MSyrupi4.SetActive(true);
-        sycount += 1;
+        sycount = 1;
         synum = 4;
         PancakeMoney += 4;
     }
@@ -1787,7 +1811,7 @@ public class MakeFood : MonoBehaviour
         }
         Syrupi5.SetActive(true);
         MSyrupi5.SetActive(true);
-        sycount += 1;
+        sycount = 1;
         synum = 5;
         PancakeMoney += 5;
     }
@@ -1839,7 +1863,7 @@ public class MakeFood : MonoBehaviour
         }
         Syrupi6.SetActive(true);
         MSyrupi6.SetActive(true);
-        sycount += 1;
+        sycount = 1;
         synum = 6;
         PancakeMoney += 6;
     }
@@ -1891,7 +1915,7 @@ public class MakeFood : MonoBehaviour
         }
         Syrupi7.SetActive(true);
         MSyrupi7.SetActive(true);
-        sycount += 1;
+        sycount = 1;
         synum = 7;
         PancakeMoney += 7;
     }
@@ -1924,6 +1948,7 @@ public class MakeFood : MonoBehaviour
     }
     public void make()
     {
+        POP.Play();
         if(pancount < 1)
         {
             return;
@@ -1934,11 +1959,11 @@ public class MakeFood : MonoBehaviour
 
         MakingPanel.SetActive(true);
 
-        pancount = 0;
-        tocount = 0;
-        sycount = 0;
+        MakeMoney += PancakeMoney;
+        MakeMoney += ToppingMoney;
+        MakeMoney += Topping1Money;
+        MakeMoney += SyrupMoney;
 
-        Make.SetActive(true);
         PanImageCollect.SetActive(true);
         ToImageCollect.SetActive(true);
         SyImageCollect.SetActive(true);
@@ -1947,6 +1972,8 @@ public class MakeFood : MonoBehaviour
     }
     public void trash()
     {
+        Trash.Play();
+
         MTrashB.SetActive(true);
         MMakeB.SetActive(false);
         Dish.SetActive(false);
@@ -1955,7 +1982,19 @@ public class MakeFood : MonoBehaviour
         tocount = 0;
         sycount = 0;
 
-    pancake1ButtonPressed = true;
+        pannum = 0;
+        tonum = 0;
+        tonum1 = 0;
+        synum = 0;
+
+        PancakeMoney = 0;
+        ToppingMoney = 0;
+        Topping1Money = 0;
+        SyrupMoney = 0;
+
+        MakeMoney = 0;
+
+        pancake1ButtonPressed = true;
     pancake2ButtonPressed = true;
     pancake3ButtonPressed = true;
     pancake4ButtonPressed = true;
@@ -2057,10 +2096,6 @@ public class MakeFood : MonoBehaviour
 
     IEnumerator makefinish()
     {
-        MakeMoney += PancakeMoney;
-        MakeMoney += ToppingMoney;
-        MakeMoney += Topping1Money;
-        MakeMoney += SyrupMoney;
 
         if (MoneyData.CoinInt > 0)
         {
@@ -2078,14 +2113,11 @@ public class MakeFood : MonoBehaviour
         firstpancake.SetActive(false);
         secondtopping.SetActive(false);
         samemenutext.SetActive(false);
-
         yield return new WaitForSeconds(MakeTime);
-        SlideCanvas.instance.SlideOutToRight();
+        MakeFinish.Play();
+        SlideCanvas.instance.SlideOutToRight();       
         yield return new WaitForSeconds(1.0f);
-
-        MakeMoney = 0;
-
-        Make.SetActive(false);
+        MakingPanel.SetActive(false);
 
         Pancakei1.SetActive(false);
         Pancakei2.SetActive(false);
@@ -2148,5 +2180,44 @@ public class MakeFood : MonoBehaviour
         syrup7ButtonPressed = true;
 
         MakingPanel.SetActive(false);
+
+        yield return new WaitForSeconds(1.0f);
+
+        if (pancount == 1)
+        {
+            pancount -= 1;
+        }
+        pancount = 0;
+        if(tocount == 2)
+        {
+            tocount -= 2;
+        }
+        if (tocount == 1)
+        {
+            tocount -= 1;
+        }
+        if (sycount == 1)
+        {
+            sycount -= 1;
+        }
+    }
+
+    public void Deletenum()
+    {
+        pancount = 0;
+        tocount = 0;
+        sycount = 0;
+
+        pannum = 0;
+        tonum = 0;
+        tonum1 = 0;
+        synum = 0;
+
+        PancakeMoney = 0;
+        ToppingMoney = 0;
+        Topping1Money = 0;
+        SyrupMoney = 0;
+
+        MakeMoney = 0;
     }
 }

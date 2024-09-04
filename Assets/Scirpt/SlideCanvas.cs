@@ -16,6 +16,8 @@ public class SlideCanvas : MonoBehaviour
     public static SlideCanvas instance;   //변수 선언부
 
     public GameObject FoodDishMoveObject;
+
+    public AudioSource POP;
     void Awake()
     {
         SlideCanvas.instance = this;  //변수 초기화부
@@ -39,6 +41,8 @@ public class SlideCanvas : MonoBehaviour
 
     public void SlideInToLeft()
     {
+        DataManager.InitializeUnlockedObjects();
+        POP.Play();
         //FoodDishMoveObject.SetActive(true);
         MakeFood.instance.ToCollect.SetActive(false);
         MakeFood.instance.SyCollect.SetActive(false);

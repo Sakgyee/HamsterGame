@@ -27,11 +27,25 @@ public class MoneyData : MonoBehaviour
     int PanCount;
     int ToCount;
     int SyCount;
+    int FuCount;
 
     int UpgradeBuyCheck;
-    public int UpgradeTimeCheck;
-    public int UpgradeMoneyCheck;
-    public int UpgradeExpCheck;
+    public static int UpgradeTimeCheck;
+    public static int UpgradeMoneyCheck;
+    public static int UpgradeExpCheck;
+
+    public Text TiMoneyText;
+    public Text MoMoneyText;
+    public Text ExMoneyText;
+
+    public GameObject Flowerpot;
+    public GameObject Curtain;
+    public GameObject Shelf;
+    public GameObject Carpet;
+    public GameObject Sofa;
+    public GameObject Treadmill;
+
+    public AudioSource POP;
     private void Awake()
     {
         MoneyData.instance = this;
@@ -46,15 +60,33 @@ public class MoneyData : MonoBehaviour
         LevelExpInt = PlayerPrefs.GetInt("LevelExp", 0);
         CoinInt = PlayerPrefs.GetInt("Coin", 0); // PlayerPrefs 내에 저장되어있는 'Coin'을 불러와 CoinInt에 저장합니다. 만약에 저장된 정보가 없다면 0을 저장합니다.
 
+        UpgradeTimeCheck = PlayerPrefs.GetInt("TimeCheck", 0);
+        UpgradeMoneyCheck = PlayerPrefs.GetInt("MoneyCheck", 0);
+        UpgradeExpCheck = PlayerPrefs.GetInt("ExpCheck", 0);
+
         Coinprice = 0;
         PanCount = 0;
         ToCount = 0;
         SyCount = 0;
+        FuCount = 0;
 
         //LevelInt -= 1;
-        //LevelExpInt -= 300;
-
+        //LevelExpInt += 240;
+        //Coinprice += 10000;
+        //CoinInt += Coinprice;
+        //Coinprice = 0;
         LevelUp();
+
+        if(LevelExpInt == 0)
+        {
+            FoodRandomPick.instance.ResetData();
+            FoodCheck.instance.StackReset();
+            HamsterManual.instance.ResetHeart();
+        }
+    }
+    public void GiveMoney()
+    {
+        CoinInt += 1000;
     }
 
     public void LevelUp() {
@@ -159,13 +191,78 @@ public class MoneyData : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-     
+        if(UpgradeTimeCheck == 0)
+        {
+            TiMoneyText.text = "500";
+        }
+        if (UpgradeTimeCheck == 1)
+        {
+            TiMoneyText.text = "1000";
+        }
+        if (UpgradeTimeCheck == 2)
+        {
+            TiMoneyText.text = "1500";
+        }
+        if (UpgradeTimeCheck == 3)
+        {
+            TiMoneyText.text = "2000";
+        }
+        if (UpgradeTimeCheck == 4)
+        {
+            TiMoneyText.text = "2500";
+        }
+
+        if (UpgradeMoneyCheck == 0)
+        {
+            MoMoneyText.text = "500";
+        }
+        if (UpgradeMoneyCheck == 1)
+        {
+            MoMoneyText.text = "1000";
+        }
+        if (UpgradeMoneyCheck == 2)
+        {
+            MoMoneyText.text = "1500";
+        }
+        if (UpgradeMoneyCheck == 3)
+        {
+            MoMoneyText.text = "2000";
+        }
+        if (UpgradeMoneyCheck == 4)
+        {
+            MoMoneyText.text = "2500";
+        }
+
+        if (UpgradeExpCheck == 0)
+        {
+            ExMoneyText.text = "500";
+        }
+        if (UpgradeExpCheck == 1)
+        {
+            ExMoneyText.text = "1000";
+        }
+        if (UpgradeExpCheck == 2)
+        {
+            ExMoneyText.text = "1500";
+        }
+        if (UpgradeExpCheck == 3)
+        {
+            ExMoneyText.text = "2000";
+        }
+        if (UpgradeExpCheck == 4)
+        {
+            ExMoneyText.text = "2500";
+        }
         //Debug.Log(LevelExpInt);
         //Debug.Log(CoinInt);
 
         PlayerPrefs.SetInt("Level", LevelInt);
         PlayerPrefs.SetInt("LevelExp", LevelExpInt);
         PlayerPrefs.SetInt("Coin", CoinInt); // CoinInt를 PlayerPrefs 내에  저장되어있는 'Coin'에 저장합니다.
+
+        PlayerPrefs.SetInt("TimeCheck", UpgradeTimeCheck);
+        PlayerPrefs.SetInt("MoneyCheck", UpgradeMoneyCheck);
+        PlayerPrefs.SetInt("ExpCheck", UpgradeExpCheck);
 
         LevelText.text = LevelInt.ToString();
         LevelExpText.text = LevelExpInt.ToString();
@@ -189,11 +286,11 @@ public class MoneyData : MonoBehaviour
         }
         if (buttonTag == "StrawberryP")
         {
-            if (CoinInt >= 200)
+            if (CoinInt >= 300)
             {
                 YesMoney.SetActive(true);
                 PanCount += 3;
-                Coinprice += 200;
+                Coinprice += 300;
             }
             else // 만약에 부족하다면
             {
@@ -202,11 +299,11 @@ public class MoneyData : MonoBehaviour
         }
         if (buttonTag == "Green tea")
         {
-            if (CoinInt >= 300)
+            if (CoinInt >= 400)
             {
                 YesMoney.SetActive(true);
                 PanCount += 4;
-                Coinprice += 300;
+                Coinprice += 400;
             }
             else // 만약에 부족하다면
             {
@@ -215,11 +312,11 @@ public class MoneyData : MonoBehaviour
         }
         if (buttonTag == "Coffee")
         {
-            if (CoinInt >= 400)
+            if (CoinInt >= 500)
             {
                 YesMoney.SetActive(true);
                 PanCount += 5;
-                Coinprice += 400;
+                Coinprice += 500;
             }
             else // 만약에 부족하다면
             {
@@ -228,11 +325,11 @@ public class MoneyData : MonoBehaviour
         }
         if (buttonTag == "MintP")
         {
-            if (CoinInt >= 500)
+            if (CoinInt >= 550)
             {
                 YesMoney.SetActive(true);
                 PanCount += 6;
-                Coinprice += 500;
+                Coinprice += 550;
             }
             else // 만약에 부족하다면
             {
@@ -254,11 +351,11 @@ public class MoneyData : MonoBehaviour
         }
         if (buttonTag == "Glacier")
         {
-            if (CoinInt >= 700)
+            if (CoinInt >= 800)
             {
                 YesMoney.SetActive(true);
                 PanCount += 8;
-                Coinprice += 700;
+                Coinprice += 800;
             }
             else // 만약에 부족하다면
             {
@@ -267,11 +364,11 @@ public class MoneyData : MonoBehaviour
         }
         if (buttonTag == "Lava")
         {
-            if (CoinInt >= 800)
+            if (CoinInt >= 1000)
             {
                 YesMoney.SetActive(true);
                 PanCount += 9;
-                Coinprice += 800;
+                Coinprice += 1000;
             }
             else // 만약에 부족하다면
             {
@@ -323,11 +420,11 @@ public class MoneyData : MonoBehaviour
         }
         if (buttonTag == "Banana")
         {
-            if (CoinInt >= 400)
+            if (CoinInt >= 350)
             {
                 YesMoney.SetActive(true);
                 ToCount += 6;
-                Coinprice += 400;
+                Coinprice += 350;
             }
             else // 만약에 부족하다면
             {
@@ -336,11 +433,11 @@ public class MoneyData : MonoBehaviour
         }
         if (buttonTag == "Whipped cream")
         {
-            if (CoinInt >= 500)
+            if (CoinInt >= 400)
             {
                 YesMoney.SetActive(true);
                 ToCount += 7;
-                Coinprice += 500;
+                Coinprice += 400;
             }
             else // 만약에 부족하다면
             {
@@ -349,11 +446,11 @@ public class MoneyData : MonoBehaviour
         }
         if (buttonTag == "Pistachio")
         {
-            if (CoinInt >= 600)
+            if (CoinInt >= 550)
             {
                 YesMoney.SetActive(true);
                 ToCount += 8;
-                Coinprice += 600;
+                Coinprice += 550;
             }
             else // 만약에 부족하다면
             {
@@ -362,11 +459,11 @@ public class MoneyData : MonoBehaviour
         }
         if (buttonTag == "Raspberry")
         {
-            if (CoinInt >= 700)
+            if (CoinInt >= 600)
             {
                 YesMoney.SetActive(true);
                 ToCount += 9;
-                Coinprice += 700;
+                Coinprice += 600;
             }
             else // 만약에 부족하다면
             {
@@ -388,11 +485,11 @@ public class MoneyData : MonoBehaviour
         }
         if (buttonTag == "Almond")
         {
-            if (CoinInt >= 900)
+            if (CoinInt >= 1000)
             {
                 YesMoney.SetActive(true);
                 ToCount += 11;
-                Coinprice += 900;
+                Coinprice += 1000;
             }
             else // 만약에 부족하다면
             {
@@ -417,11 +514,11 @@ public class MoneyData : MonoBehaviour
         }
         if (buttonTag == "StrawberryS")
         {
-            if (CoinInt >= 200)
+            if (CoinInt >= 300)
             {
                 YesMoney.SetActive(true);
                 SyCount += 3;
-                Coinprice += 200;
+                Coinprice += 300;
             }
             else // 만약에 부족하다면
             {
@@ -430,11 +527,11 @@ public class MoneyData : MonoBehaviour
         }
         if (buttonTag == "Orange")
         {
-            if (CoinInt >= 300)
+            if (CoinInt >= 500)
             {
                 YesMoney.SetActive(true);
                 SyCount += 4;
-                Coinprice += 300;
+                Coinprice += 500;
             }
             else // 만약에 부족하다면
             {
@@ -443,11 +540,11 @@ public class MoneyData : MonoBehaviour
         }
         if (buttonTag == "MintS")
         {
-            if (CoinInt >= 400)
+            if (CoinInt >= 700)
             {
                 YesMoney.SetActive(true);
                 SyCount += 5;
-                Coinprice += 400;
+                Coinprice += 700;
             }
             else // 만약에 부족하다면
             {
@@ -456,11 +553,11 @@ public class MoneyData : MonoBehaviour
         }
         if (buttonTag == "Green teaS")
         {
-            if (CoinInt >= 500)
+            if (CoinInt >= 850)
             {
                 YesMoney.SetActive(true);
                 SyCount += 6;
-                Coinprice += 500;
+                Coinprice += 850;
             }
             else // 만약에 부족하다면
             {
@@ -469,11 +566,92 @@ public class MoneyData : MonoBehaviour
         }
         if (buttonTag == "LavaS")
         {
-            if (CoinInt >= 600)
+            if (CoinInt >= 1000)
             {
                 YesMoney.SetActive(true);
                 SyCount += 7;
-                Coinprice += 600;
+                Coinprice += 1000;
+            }
+            else // 만약에 부족하다면
+            {
+                NoMoney.SetActive(true);
+            }
+        }
+    }
+    public void FurnitureStoreBuy(string buttonTag) // 상점에서 구매할때
+    {
+        if (buttonTag == "Flowerpot")
+        {
+            if (CoinInt >= 1000)
+            {
+                YesMoney.SetActive(true);
+                FuCount += 2;
+                Coinprice += 1000;
+            }
+            else // 만약에 부족하다면
+            {
+                NoMoney.SetActive(true);
+            }
+        }
+        if (buttonTag == "Curtain")
+        {
+            if (CoinInt >= 2000)
+            {
+                YesMoney.SetActive(true);
+                FuCount += 3;
+                Coinprice += 2000;
+            }
+            else // 만약에 부족하다면
+            {
+                NoMoney.SetActive(true);
+            }
+        }
+        if (buttonTag == "Shelf")
+        {
+            if (CoinInt >= 3000)
+            {
+                YesMoney.SetActive(true);
+                FuCount += 4;
+                Coinprice += 3000;
+            }
+            else // 만약에 부족하다면
+            {
+                NoMoney.SetActive(true);
+            }
+        }
+        if (buttonTag == "Carpet")
+        {
+            if (CoinInt >= 4000)
+            {
+                YesMoney.SetActive(true);
+                FuCount += 5;
+                Coinprice += 4000;
+            }
+            else // 만약에 부족하다면
+            {
+                NoMoney.SetActive(true);
+            }
+        }
+        if (buttonTag == "Sofa")
+        {
+            if (CoinInt >= 5000)
+            {
+                YesMoney.SetActive(true);
+                FuCount += 6;
+                Coinprice += 5000;
+            }
+            else // 만약에 부족하다면
+            {
+                NoMoney.SetActive(true);
+            }
+        }
+        if (buttonTag == "Treadmill")
+        {
+            if (CoinInt >= 6000)
+            {
+                YesMoney.SetActive(true);
+                FuCount += 7;
+                Coinprice += 6000;
             }
             else // 만약에 부족하다면
             {
@@ -497,6 +675,7 @@ public class MoneyData : MonoBehaviour
                 else // 만약에 부족하다면
                 {
                     NoMoney.SetActive(true);
+                    UpgradeBuyCheck = 0;
                 }
             }
             if (UpgradeTimeCheck == 1)
@@ -509,6 +688,7 @@ public class MoneyData : MonoBehaviour
                 else // 만약에 부족하다면
                 {
                     NoMoney.SetActive(true);
+                    UpgradeBuyCheck = 0;
                 }
             }
             if (UpgradeTimeCheck == 2)
@@ -521,6 +701,7 @@ public class MoneyData : MonoBehaviour
                 else // 만약에 부족하다면
                 {
                     NoMoney.SetActive(true);
+                    UpgradeBuyCheck = 0;
                 }
             }
             if (UpgradeTimeCheck == 3)
@@ -533,6 +714,7 @@ public class MoneyData : MonoBehaviour
                 else // 만약에 부족하다면
                 {
                     NoMoney.SetActive(true);
+                    UpgradeBuyCheck = 0;
                 }
             }
             if (UpgradeTimeCheck == 4)
@@ -545,6 +727,7 @@ public class MoneyData : MonoBehaviour
                 else // 만약에 부족하다면
                 {
                     NoMoney.SetActive(true);
+                    UpgradeBuyCheck = 0;
                 }
             }
         }
@@ -562,6 +745,7 @@ public class MoneyData : MonoBehaviour
                 else // 만약에 부족하다면
                 {
                     NoMoney.SetActive(true);
+                    UpgradeBuyCheck = 0;
                 }
             }
             if (UpgradeMoneyCheck == 1)
@@ -574,6 +758,7 @@ public class MoneyData : MonoBehaviour
                 else // 만약에 부족하다면
                 {
                     NoMoney.SetActive(true);
+                    UpgradeBuyCheck = 0;
                 }
             }
             if (UpgradeMoneyCheck == 2)
@@ -586,6 +771,7 @@ public class MoneyData : MonoBehaviour
                 else // 만약에 부족하다면
                 {
                     NoMoney.SetActive(true);
+                    UpgradeBuyCheck = 0;
                 }
             }
             if (UpgradeMoneyCheck == 3)
@@ -598,6 +784,7 @@ public class MoneyData : MonoBehaviour
                 else // 만약에 부족하다면
                 {
                     NoMoney.SetActive(true);
+                    UpgradeBuyCheck = 0;
                 }
             }
             if (UpgradeMoneyCheck == 4)
@@ -610,6 +797,7 @@ public class MoneyData : MonoBehaviour
                 else // 만약에 부족하다면
                 {
                     NoMoney.SetActive(true);
+                    UpgradeBuyCheck = 0;
                 }
             }
         }
@@ -627,6 +815,7 @@ public class MoneyData : MonoBehaviour
                 else // 만약에 부족하다면
                 {
                     NoMoney.SetActive(true);
+                    UpgradeBuyCheck = 0;
                 }
             }
             if (UpgradeExpCheck == 1)
@@ -639,6 +828,7 @@ public class MoneyData : MonoBehaviour
                 else // 만약에 부족하다면
                 {
                     NoMoney.SetActive(true);
+                    UpgradeBuyCheck = 0;
                 }
             }
             if (UpgradeExpCheck == 2)
@@ -651,6 +841,7 @@ public class MoneyData : MonoBehaviour
                 else // 만약에 부족하다면
                 {
                     NoMoney.SetActive(true);
+                    UpgradeBuyCheck = 0;
                 }
             }
             if (UpgradeExpCheck == 3)
@@ -663,6 +854,7 @@ public class MoneyData : MonoBehaviour
                 else // 만약에 부족하다면
                 {
                     NoMoney.SetActive(true);
+                    UpgradeBuyCheck = 0;
                 }
             }
             if (UpgradeExpCheck == 4)
@@ -675,6 +867,7 @@ public class MoneyData : MonoBehaviour
                 else // 만약에 부족하다면
                 {
                     NoMoney.SetActive(true);
+                    UpgradeBuyCheck = 0;
                 }
             }
         }
@@ -683,12 +876,11 @@ public class MoneyData : MonoBehaviour
     }
     public void NoMoneyExit()
     {
-        //Coinprice += 10000;
-        //CoinInt += Coinprice;
         NoMoney.SetActive(false);
     }
     public void YesMoneyBuy()
     {
+        POP.Play();
         CoinInt -= Coinprice;
         Coinprice = 0;
         YesMoney.SetActive(false);
@@ -794,7 +986,6 @@ public class MoneyData : MonoBehaviour
         }
         if (SyCount >= 1)
         {
-
             //만들기에 잠금해제     
             if (SyCount == 2)
             {
@@ -830,30 +1021,79 @@ public class MoneyData : MonoBehaviour
             FoodRandomPick.instance.syrupunlock(SyCount);
             SyCount = 0;
         }
-        if(UpgradeBuyCheck == 1)
+        if (FuCount >= 1)
         {
-            YesMoney.SetActive(false);
-            UpgradeManager.instance.Upgradetime += 1;
+            //만들기에 잠금해제     
+            if (FuCount == 2)
+            {
+                //가구 오브젝트를 잠시 활성화 시킴
+                Flowerpot.SetActive(true);
+
+                DataManager.UnlockFurniture("Flowerpot Lock");
+                DataManager.UnlockStoreMenu("Flowerpot locked");
+            }
+            if (FuCount == 3)
+            {
+                Curtain.SetActive(true);
+
+                DataManager.UnlockFurniture("Curtain Lock");
+                DataManager.UnlockStoreMenu("Curtain locked");
+            }
+            if (FuCount == 4)
+            {
+                Shelf.SetActive(true);
+
+                DataManager.UnlockFurniture("Shelf Lock");
+                DataManager.UnlockStoreMenu("Shelf locked");
+            }
+            if (FuCount == 5)
+            {
+                Carpet.SetActive(true);
+
+                DataManager.UnlockFurniture("Carpet Lock");
+                DataManager.UnlockStoreMenu("Carpet locked");
+            }
+            if (FuCount == 6)
+            {
+                Sofa.SetActive(true);
+
+                DataManager.UnlockFurniture("Sofa Lock");
+                DataManager.UnlockStoreMenu("Sofa locked");
+            }
+            if (FuCount == 7)
+            {
+                Treadmill.SetActive(true);
+
+                DataManager.UnlockFurniture("Treadmill Lock");
+                DataManager.UnlockStoreMenu("Treadmill locked");
+            }                      
+            FuCount = 0;
+        }
+        if (UpgradeBuyCheck == 1)
+        {
             UpgradeBuyCheck = 0;
+            YesMoney.SetActive(false);
+            UpgradeManager.instance.Upgradetime += 1;           
             UpgradeManager.instance.Restart();
         }
         if (UpgradeBuyCheck == 2)
         {
-            YesMoney.SetActive(false);
-            UpgradeManager.instance.Upgrademoney += 1;
             UpgradeBuyCheck = 0;
+            YesMoney.SetActive(false);
+            UpgradeManager.instance.Upgrademoney += 1;         
             UpgradeManager.instance.Restart();
         }
         if (UpgradeBuyCheck == 3)
         {
-            YesMoney.SetActive(false);
-            UpgradeManager.instance.Upgradeexp += 1;
             UpgradeBuyCheck = 0;
+            YesMoney.SetActive(false);
+            UpgradeManager.instance.Upgradeexp += 1;          
             UpgradeManager.instance.Restart();
         }
     }
         public void YesMoneyExit()
     {
+        POP.Play();
         YesMoney.SetActive(false);
         Coinprice = 0;
     }

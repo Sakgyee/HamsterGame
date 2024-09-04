@@ -1,0 +1,44 @@
+{
+    "encyclopedias": [
+        {
+            "name": "Hamster in kindergarten Lock",
+            "locked": true
+        },
+        {
+            "name": "Vacation hamster Lock",
+            "locked": true
+        },
+        {
+            "name": "an office worker hamster Lock",
+            "locked": true
+        },
+        {
+            "name": "Strawberry hamster Lock",
+            "locked": true
+        },
+        {
+            "name": "Mint chocolate hamster Lock",
+            "locked": true
+        },
+        {
+            "name": "a suspicious hamster Lock",
+            "locked": true
+        },
+        {
+            "name": "Idol hamster Lock",
+            "locked": true
+        },
+        {
+            "name": "Fire hamster Lock",
+            "locked": true
+        },
+        {
+            "name": "Wizard hamster Lock",
+            "locked": true
+        },
+        {
+            "name": "Ice queen hamster Lock",
+            "locked": true
+        }
+    ]
+}

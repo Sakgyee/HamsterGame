@@ -1,1 +1,36 @@
-{"pancakes":[{"name":"ChocoP Lock","locked":false},{"name":"StrawberryP Lock","locked":true},{"name":"Green tea Lock","locked":true},{"name":"Coffee Lock","locked":true},{"name":"MintP Lock","locked":true},{"name":"Black sesame seed Lock","locked":false},{"name":"Glacier Lock","locked":true},{"name":"Lava Lock","locked":true}]}
+{
+  "pancakes": [
+    {
+      "name": "ChocoP Lock",
+      "locked": true
+    },
+    {
+      "name": "StrawberryP Lock",
+      "locked": true
+    },
+    {
+      "name": "Green tea Lock",
+      "locked": true
+    },
+    {
+      "name": "Coffee Lock",
+      "locked": true
+    },
+    {
+      "name": "MintP Lock",
+      "locked": true
+    },
+    {
+      "name": "Black sesame seed Lock",
+      "locked": true
+    },
+    {
+      "name": "Glacier Lock",
+      "locked": true
+    },
+    {
+      "name": "Lava Lock",
+      "locked": true
+    }
+  ]
+}

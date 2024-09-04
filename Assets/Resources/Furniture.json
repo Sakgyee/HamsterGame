@@ -1,0 +1,28 @@
+{
+  "furnitures": [
+    {
+      "name": "Flowerpot Lock",
+      "locked": false
+    },
+    {
+      "name": "Curtain Lock",
+      "locked": false
+    },
+    {
+      "name": "Shelf Lock",
+      "locked": false
+    },
+    {
+      "name": "Carpet Lock",
+      "locked": false
+    },
+    {
+      "name": "Sofa Lock",
+      "locked": false
+    },
+    {
+      "name": "Treadmill Lock",
+      "locked": false
+    }
+  ]
+}

@@ -13,10 +13,10 @@ public class Store : MonoBehaviour
     public ScrollRect ToTrans;
     public ScrollRect SyTrans;
     public ScrollRect ItTrans;
-    public ScrollRect SkTrans;
 
     public GameObject StoreCanvas;
 
+    public AudioSource POP;
     public void Pancakestore()
     {
         Panstore.SetActive(true);
@@ -28,7 +28,6 @@ public class Store : MonoBehaviour
         ToTrans.content.localPosition = new Vector3(0, 0, 0);
         SyTrans.content.localPosition = new Vector3(0, 0, 0);
         ItTrans.content.localPosition = new Vector3(0, 0, 0);
-        SkTrans.content.localPosition = new Vector3(0, 0, 0);
     }
     public void Toppingstore()
     {
@@ -41,7 +40,6 @@ public class Store : MonoBehaviour
         ToTrans.content.localPosition = new Vector3(0, 0, 0);
         SyTrans.content.localPosition = new Vector3(0, 0, 0);
         ItTrans.content.localPosition = new Vector3(0, 0, 0);
-        SkTrans.content.localPosition = new Vector3(0, 0, 0);
     }
     public void Syrupstore()
     {
@@ -54,7 +52,6 @@ public class Store : MonoBehaviour
         ToTrans.content.localPosition = new Vector3(0, 0, 0);
         SyTrans.content.localPosition = new Vector3(0, 0, 0);
         ItTrans.content.localPosition = new Vector3(0, 0, 0);
-        SkTrans.content.localPosition = new Vector3(0, 0, 0);
     }
     public void Itemstore()
     {
@@ -67,10 +64,11 @@ public class Store : MonoBehaviour
         ToTrans.content.localPosition = new Vector3(0, 0, 0);
         SyTrans.content.localPosition = new Vector3(0, 0, 0);
         ItTrans.content.localPosition = new Vector3(0, 0, 0);
-        SkTrans.content.localPosition = new Vector3(0, 0, 0);
     }
    public void IntoStore()
     {
+        DataManager.InitializeUnlockedObjects();
+        POP.Play();
         StoreCanvas.transform.localPosition = new Vector3(0, 0, 0);
 
         Tostore.SetActive(false);
@@ -81,7 +79,6 @@ public class Store : MonoBehaviour
         ToTrans.content.localPosition = new Vector3(0, 0, 0);
         SyTrans.content.localPosition = new Vector3(0, 0, 0);
         ItTrans.content.localPosition = new Vector3(0, 0, 0);
-        SkTrans.content.localPosition = new Vector3(0, 0, 0);
 
     }
    public void Backtomain()
@@ -97,7 +94,6 @@ public class Store : MonoBehaviour
         ToTrans.content.localPosition = new Vector3(0, 0, 0);
         SyTrans.content.localPosition = new Vector3(0, 0, 0);
         ItTrans.content.localPosition = new Vector3(0, 0, 0);
-        SkTrans.content.localPosition = new Vector3(0, 0, 0);
 
         DataManager.InitializeUnlockedObjects();
         UpgradeManager.instance.Restart();

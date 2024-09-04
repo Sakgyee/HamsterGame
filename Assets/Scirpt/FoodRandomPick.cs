@@ -50,6 +50,7 @@ public class FoodRandomPick : MonoBehaviour
     public GameObject PSyrupi4;
     public GameObject PSyrupi5;
     public GameObject PSyrupi6;
+    public GameObject PSyrupi7;
 
     public int PancakeNumber;
     public int ToppingNumber;
@@ -78,12 +79,6 @@ public class FoodRandomPick : MonoBehaviour
     public GameObject RanHam11;
     public GameObject RanHam12;
     public GameObject RanHam13;
-    public GameObject RanHam14;
-
-    public int LikePan;
-    public int LikeTo;
-    public int LikeTo1;
-    public int LikeSy;
 
     public List<int> Panvalues = new List<int> {};
     public List<int> Tovalues = new List<int> { };
@@ -97,7 +92,6 @@ public class FoodRandomPick : MonoBehaviour
     {
         FoodRandomPick.instance = this;
     }
-
     public void RandomPickSaveData()
     {
         PlayerPrefs.SetString("Panvalues", JsonUtility.ToJson(new Serialization<int>(Panvalues)));
@@ -139,6 +133,20 @@ public class FoodRandomPick : MonoBehaviour
         //RandomPickSaveData();
         RandomPickLoadData();
 
+        //RanHam1.SetActive(false);
+        //RanHam2.SetActive(false);
+        //RanHam3.SetActive(false);
+        //RanHam4.SetActive(false);
+        //RanHam5.SetActive(false);
+        //RanHam6.SetActive(false);
+        //RanHam7.SetActive(false);
+        //RanHam8.SetActive(false);
+        //RanHam9.SetActive(false);
+        //RanHam10.SetActive(false);
+        //RanHam11.SetActive(false);
+        //RanHam12.SetActive(false);
+        //RanHam13.SetActive(false);
+
         PPancakei1.SetActive(false);
         PPancakei2.SetActive(false);
         PPancakei3.SetActive(false);
@@ -167,6 +175,7 @@ public class FoodRandomPick : MonoBehaviour
         PSyrupi4.SetActive(false);
         PSyrupi5.SetActive(false);
         PSyrupi6.SetActive(false);
+        PSyrupi7.SetActive(false);
 
         for (int i = 1; i < 4; i++)
         {
@@ -177,114 +186,54 @@ public class FoodRandomPick : MonoBehaviour
         if (HamNumber == 1)
             {
                 RanHam1.SetActive(true);
-                LikePan = 1;
-                LikeTo = LikeToppingNumbers[0];
-                LikeTo1 = LikeToppingNumbers[2];
-                LikeSy = 1;         
             }
             if (HamNumber == 2)
             {
                 RanHam2.SetActive(true);
-                LikePan = 2;
-                LikeTo = LikeToppingNumbers[0];
-                LikeTo1 = LikeToppingNumbers[1];
-                LikeSy = 2;
             }
             if (HamNumber == 3)
             {
                 RanHam3.SetActive(true);
-                LikePan = 3;
-                LikeTo = LikeToppingNumbers[1];
-                LikeTo1 = LikeToppingNumbers[2];
-                LikeSy = 3;
             }
             if (HamNumber == 4)
             {
                 RanHam4.SetActive(true);
-                LikePan = 1;
-                LikeTo = LikeToppingNumbers[1];
-                LikeTo1 = LikeToppingNumbers[2];
-                LikeSy = 2;
             }
             if (HamNumber == 5)
             {
                 RanHam5.SetActive(true);
-                LikePan = 2;
-                LikeTo = LikeToppingNumbers[1];
-                LikeTo1 = LikeToppingNumbers[2];
-                LikeSy = 1;
             }
         if (HamNumber == 6)
         {
             RanHam6.SetActive(true);
-            LikePan = 2;
-            LikeTo = LikeToppingNumbers[1];
-            LikeTo1 = LikeToppingNumbers[2];
-            LikeSy = 1;
         }
         if (HamNumber == 7)
         {
             RanHam7.SetActive(true);
-            LikePan = 2;
-            LikeTo = LikeToppingNumbers[1];
-            LikeTo1 = LikeToppingNumbers[2];
-            LikeSy = 1;
         }
         if (HamNumber == 8)
         {
             RanHam8.SetActive(true);
-            LikePan = 2;
-            LikeTo = LikeToppingNumbers[1];
-            LikeTo1 = LikeToppingNumbers[2];
-            LikeSy = 1;
         }
         if (HamNumber == 9)
         {
             RanHam9.SetActive(true);
-            LikePan = 2;
-            LikeTo = LikeToppingNumbers[1];
-            LikeTo1 = LikeToppingNumbers[2];
-            LikeSy = 1;
         }
         if (HamNumber == 10)
         {
             RanHam10.SetActive(true);
-            LikePan = 2;
-            LikeTo = LikeToppingNumbers[1];
-            LikeTo1 = LikeToppingNumbers[2];
-            LikeSy = 1;
         }
         if (HamNumber == 11)
         {
             RanHam11.SetActive(true);
-            LikePan = 2;
-            LikeTo = LikeToppingNumbers[1];
-            LikeTo1 = LikeToppingNumbers[2];
-            LikeSy = 1;
         }
         if (HamNumber == 12)
         {
             RanHam12.SetActive(true);
-            LikePan = 2;
-            LikeTo = LikeToppingNumbers[1];
-            LikeTo1 = LikeToppingNumbers[2];
-            LikeSy = 1;
         }
         if (HamNumber == 13)
         {
             RanHam13.SetActive(true);
-            LikePan = 2;
-            LikeTo = LikeToppingNumbers[1];
-            LikeTo1 = LikeToppingNumbers[2];
-            LikeSy = 1;
-        }
-        if (HamNumber == 14)
-        {
-            RanHam14.SetActive(true);
-            LikePan = 8;
-            LikeTo = LikeToppingNumbers[1];
-            LikeTo1 = LikeToppingNumbers[2];
-            LikeSy = 1;
         }
 
         PancakeNumber = Panvalues[Random.Range(0, Panvalues.Count)];
@@ -494,17 +443,17 @@ public class FoodRandomPick : MonoBehaviour
         
         SyrupNumber = Syvalues[Random.Range(0, Syvalues.Count)];
         if (SyrupNumber == 1)
-            {
-                PSyrupi1.SetActive(true);
-            }
-            if (SyrupNumber == 2)
-            {
-                PSyrupi2.SetActive(true);
-            }
-            if (SyrupNumber == 3)
-            {
-                PSyrupi3.SetActive(true);
-            }
+        {
+            PSyrupi1.SetActive(true);
+        }
+        if (SyrupNumber == 2)
+        {
+            PSyrupi2.SetActive(true);
+        }
+        if (SyrupNumber == 3)
+        {
+            PSyrupi3.SetActive(true);
+        }
         if (SyrupNumber == 4)
         {
             PSyrupi4.SetActive(true);
@@ -517,12 +466,12 @@ public class FoodRandomPick : MonoBehaviour
         {
             PSyrupi6.SetActive(true);
         }
+        if (SyrupNumber == 7)
+        {
+            PSyrupi7.SetActive(true);
+        }
 
-        Debug.Log("1번 햄스터가 좋아하는 팬케이크넘버 :"+LikePan);
-        Debug.Log("1번 햄스터가 좋아하는 토핑넘버 :" + LikeTo);
-        Debug.Log("1번 햄스터가 좋아하는 토핑넘버1 :" + LikeTo1);
-        Debug.Log("1번 햄스터가 좋아하는 시럽넘버 :" + LikeSy);
-        if(ToppingCount == 1)
+        if (ToppingCount == 1)
         {
             Debug.Log("랜덤 팬케이크넘버 :" + PancakeNumber);
             Debug.Log("랜덤 토핑넘버 :" + RToppingNumber);
@@ -534,12 +483,14 @@ public class FoodRandomPick : MonoBehaviour
             Debug.Log("랜덤 토핑넘버 :" + RToppingNumber);
             Debug.Log("랜덤 토핑넘버1 :" + RToppingNumber1);
             Debug.Log("랜덤 시럽넘버 :" + SyrupNumber);
-        }
-
-        
+        }     
     }
 
     public void resetandstart()
+    {
+        StartCoroutine(starttime());
+    }
+    IEnumerator starttime()
     {
         RanHam1.SetActive(false);
         RanHam2.SetActive(false);
@@ -554,10 +505,17 @@ public class FoodRandomPick : MonoBehaviour
         RanHam11.SetActive(false);
         RanHam12.SetActive(false);
         RanHam13.SetActive(false);
-        RanHam14.SetActive(false);
 
         LikeToppingNumbers.Clear();
+
+        yield return new WaitForSeconds(1.5f);
+        
         Start();
+    }
+    public void hamsterunlock(int hamnumber)
+    {
+        Hamvalues.Add(hamnumber);
+        RandomPickSaveData();
     }
     public void pancakeunlock(int pannumber)
     {
@@ -579,6 +537,18 @@ public class FoodRandomPick : MonoBehaviour
         Panvalues.Clear();
         Tovalues.Clear();
         Syvalues.Clear();
+        Hamvalues.Clear();
+
+        Panvalues.Add(1);
+
+        Tovalues.Add(1);
+        Tovalues.Add(2);
+
+        Syvalues.Add(1);
+
+        Hamvalues.Add(1);
+        Hamvalues.Add(2);
+        Hamvalues.Add(3);
 
         RandomPickSaveData();
     }

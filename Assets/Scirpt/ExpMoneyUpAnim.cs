@@ -36,28 +36,28 @@ public class ExpMoneyUpAnim : MonoBehaviour
     }
     IEnumerator Wait()
     {
-        ExpUpAnim.transform.localPosition = Vector3.MoveTowards(ExpUpAnim.transform.localPosition, ExpTarget.transform.localPosition, 0.05f);
-        MoneyUpAnim.transform.localPosition = Vector3.MoveTowards(MoneyUpAnim.transform.localPosition, MoneyTarget.transform.localPosition, 0.05f);
+        ExpUpAnim.transform.localPosition = Vector3.MoveTowards(ExpUpAnim.transform.localPosition, ExpTarget.transform.localPosition, 0.5f);
+        MoneyUpAnim.transform.localPosition = Vector3.MoveTowards(MoneyUpAnim.transform.localPosition, MoneyTarget.transform.localPosition, 0.5f);
 
         yield return new WaitForSeconds(0.1f);
 
-        ExpUpAnim1.transform.localPosition = Vector3.MoveTowards(ExpUpAnim1.transform.localPosition, ExpTarget.transform.localPosition, 0.05f);
-        MoneyUpAnim1.transform.localPosition = Vector3.MoveTowards(MoneyUpAnim1.transform.localPosition, MoneyTarget.transform.localPosition, 0.05f);
+        ExpUpAnim1.transform.localPosition = Vector3.MoveTowards(ExpUpAnim1.transform.localPosition, ExpTarget.transform.localPosition, 0.5f);
+        MoneyUpAnim1.transform.localPosition = Vector3.MoveTowards(MoneyUpAnim1.transform.localPosition, MoneyTarget.transform.localPosition, 0.5f);
 
         yield return new WaitForSeconds(0.1f);
 
-        ExpUpAnim2.transform.localPosition = Vector3.MoveTowards(ExpUpAnim2.transform.localPosition, ExpTarget.transform.localPosition, 0.05f);
-        MoneyUpAnim2.transform.localPosition = Vector3.MoveTowards(MoneyUpAnim2.transform.localPosition, MoneyTarget.transform.localPosition, 0.05f);
+        ExpUpAnim2.transform.localPosition = Vector3.MoveTowards(ExpUpAnim2.transform.localPosition, ExpTarget.transform.localPosition, 0.5f);
+        MoneyUpAnim2.transform.localPosition = Vector3.MoveTowards(MoneyUpAnim2.transform.localPosition, MoneyTarget.transform.localPosition, 0.5f);
 
         yield return new WaitForSeconds(0.1f);
 
-        ExpUpAnim3.transform.localPosition = Vector3.MoveTowards(ExpUpAnim3.transform.localPosition, ExpTarget.transform.localPosition, 0.05f);
-        MoneyUpAnim3.transform.localPosition = Vector3.MoveTowards(MoneyUpAnim3.transform.localPosition, MoneyTarget.transform.localPosition, 0.05f);
+        ExpUpAnim3.transform.localPosition = Vector3.MoveTowards(ExpUpAnim3.transform.localPosition, ExpTarget.transform.localPosition, 0.5f);
+        MoneyUpAnim3.transform.localPosition = Vector3.MoveTowards(MoneyUpAnim3.transform.localPosition, MoneyTarget.transform.localPosition, 0.5f);
 
         yield return new WaitForSeconds(0.1f);
 
-        ExpUpAnim4.transform.localPosition = Vector3.MoveTowards(ExpUpAnim4.transform.localPosition, ExpTarget.transform.localPosition, 0.05f);
-        MoneyUpAnim4.transform.localPosition = Vector3.MoveTowards(MoneyUpAnim4.transform.localPosition, MoneyTarget.transform.localPosition, 0.05f);
+        ExpUpAnim4.transform.localPosition = Vector3.MoveTowards(ExpUpAnim4.transform.localPosition, ExpTarget.transform.localPosition, 0.5f);
+        MoneyUpAnim4.transform.localPosition = Vector3.MoveTowards(MoneyUpAnim4.transform.localPosition, MoneyTarget.transform.localPosition, 0.5f);
 
         yield return new WaitForSeconds(2.0f);
 
